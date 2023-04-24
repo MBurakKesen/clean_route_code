@@ -1,16 +1,21 @@
 import 'package:clean_route_code/screens/HomePage.dart';
+import 'package:clean_route_code/services/service_provider/personModel.dart';
 import 'package:clean_route_code/services/service_route/Router.dart';
+import 'package:clean_route_code/services/service_route/constants/PageNameConst.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(
-    MaterialApp(
+  Provider.debugCheckInvalidValueType=null;
+  runApp(Provider(
+    create: (_) => Person(),
+    child: MaterialApp(
       title: " Flutter Demo",
       debugShowCheckedModeBanner: false,
       onGenerateRoute: RouterClass.generateRoute,
-      initialRoute: myAppRoute,
+      initialRoute: PageNameConst.myAppRoute,
     ),
-  );
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -19,7 +24,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child:ElevatedButton(child:Text("ROUTE TEST DEMO: CLICK"),onPressed:()=>Navigator.pushNamed(context, homeRoute),),
+      child: ElevatedButton(
+        child: Text("ROUTE TEST DEMO: CLICK"),
+        onPressed: () => Navigator.pushNamed(context, PageNameConst.homeRoute),
+      ),
     );
   }
 }

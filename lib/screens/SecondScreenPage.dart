@@ -1,10 +1,10 @@
 import "package:flutter/material.dart";
+import 'package:provider/provider.dart';
+
+import '../services/service_provider/personModel.dart';
 
 class SecondScreenPage extends StatelessWidget {
-  String name;
-  String lastName;
-  SecondScreenPage({Key? key, required this.name, required this.lastName})
-      : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class SecondScreenPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text("${name} ${lastName}", style: TextStyle(fontSize: 100.0)),
+          Text(context.read<Person>().Write(), style: TextStyle(fontSize: 100.0)),
         ],
       ),
     );

@@ -1,5 +1,10 @@
+import 'package:clean_route_code/services/service_provider/personModel.dart';
+import 'package:clean_route_code/services/service_route/constants/PageNameConst.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../services/service_provider/personModel.dart';
+import '../services/service_provider/personModel.dart';
 import '../services/service_route/Router.dart';
 import 'SecondScreenPage.dart';
 
@@ -54,12 +59,15 @@ class _HomePageState extends State<HomePage> {
                 labelText: 'Soyadınızı giriniz',
               )),
           ElevatedButton(
+
             child: null,
             onPressed: () {
+              context.read<Person>().FirstName=name;
+              context.read<Person>().LastName=lastName;
+
               Navigator.pushNamed(
                 context,
-                secondScreenRoute,
-                arguments: [name, lastName],
+                PageNameConst.secondScreenRoute,
               );
             },
           ),
