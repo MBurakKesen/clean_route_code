@@ -13,7 +13,7 @@ class SecondScreenPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(context.read<Person>().Write(), style: TextStyle(fontSize: 100.0)),
+          Text(context.watch<Person>().Write(), style: TextStyle(fontSize: 100.0)),
         ],
       ),
     );
